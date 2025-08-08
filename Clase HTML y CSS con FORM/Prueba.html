@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Prueba</title>
+    </head>
+    <body>
+        <form id="myForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" minlength="4" maxlength="20" required>
+            <br>
+            <br>
+            <label for="pwd">Contraseña:</label>
+            <input type="password" id="pwd" name="password">
+            <br>
+            <br>
+            <label for="phone">Telefono:</label>
+            <input type="text" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+            <br>
+            <br>
+            <label for="numb">Numero:</label>
+            <input type="number" id="numb" name="numero" min="0" max="10">
+            <br>
+            <br>
+            <label for="correo">Email:</label>
+            <input type="email" id="correo">
+            <br>
+            <br>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" rows="4" cols="50"></textarea>
+            <br>
+            <br>
+            <label for="test">Test:</label>
+            <input type="range" id="test" min="0" max="10" value="50">
+            <br>
+            <br>
+            <label for="fecha">Test:</label>
+            <input type="date" id="fecha">
+            <br>
+            <br>
+            <label for="hora">Test:</label>
+            <input type="time" id="hora">
+            <br>
+            <br>
+            <label for="mes">Test:</label>
+            <input type="month" id="mes">
+            <br>
+            <br>
+            <label for="week">Test:</label>
+            <input type="week" id="week">
+            <br>
+            <br>
+            <label for="masc">Masculino:</label>
+            <input type="radio" id="masc" name="genero" value="masc">
+            <label for="fem">Femenino:</label>
+            <input type="radio" id="fem" name="genero" value="fem">
+            <br>
+            <br>
+            <select name="country" multiple>
+                <option value="">Seleccione un país</option>
+                <option value="es">España</option>
+                <option value="fr">Francia</option>
+                <option value="it">Italia</option>
+            </select>
+            <input type="button" value="Click Me" onclick="alert('Button clicked!')">
+            <input type="submit">
+        </form>
+        <script>
+            document.getElementById("myForm").addEventListener("submit", function(event){
+                event.preventDefault();
+                const name = document.getElementById("nombre").value;
+                alert("El nombre es: " + name);
+            });
+        </script>
+    </body>
+</html>
