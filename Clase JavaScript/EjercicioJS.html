@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio JS</title>
+    </head>
+    <body>
+        <script>
+            class Figura{
+                color;
+                constructor(color){
+                    this.color = color;
+                }
+                setColor(color){
+                    this.color = color;
+                }
+                getColor(){
+                    return this.color;
+                }
+                getArea(){}
+            }
+            class Circulo extends Figura{
+                diametro;
+                constructor(diametro, color){
+                    super(color);
+                    this.diametro = diametro;
+                }
+                getArea(){
+                    return Math.PI * this.diametro; 
+                }
+            }
+            class Cuadrado extends Figura{
+                lado;
+                constructor(lado, color){
+                    super(color);
+                    this.lado = lado;
+                }
+                getArea(){
+                    return this.lado ** 2;
+                }
+            }
+            class Triangulo extends Figura{
+                base;
+                height;
+                constructor(b, h, color){
+                    super(color);
+                    this.base = b;
+                    this.height = h;
+                }
+                getArea(){
+                    return (this.base * this.height) / 2;
+                }
+            }
+
+            let c = new Circulo(10, "Rojo");
+            console.log("Circulo -> Area: " + c.getArea().toPrecision(5) + ", Color: " + c.getColor());
+            c = new Cuadrado(4.2, "Verde");
+            console.log("Cuadrado -> Area: " + c.getArea().toPrecision(5) + ", Color: " + c.getColor());
+            c = new Triangulo(2, 4, "Azul");
+            console.log("Triangulo -> Area: " + c.getArea().toPrecision(5) + ", Color: " + c.getColor());
+
+        </script>
+    </body>
+</html>
