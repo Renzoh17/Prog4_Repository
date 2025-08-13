@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prueba JS</title>
+    </head>
+    <body>
+        <script>
+            alert("Esto es una prueba");
+            console.log("Hola Mundo");
+            let r = 3 + 7;
+            console.log("La suma es " + r + " (" + typeof r + ")");
+            //var -> global || let -> bloque
+            console.log({1:2} + " " + typeof {1:2});
+            console.log([1,2,3] + " " + typeof [1,2,3]);
+            console.log("Potencia: " + 2 ** 3);
+            console.log(1 == "1" ? "Iguales" : "Distintos");
+            console.log(1 === 1 ? "Iguales estrictos" : "Distintos estrictos");
+            console.log(1 != "1" ? "Distintos" : "Iguales");
+            console.log(1 !== "1" ? "Distintos estrictos" : "Iguales estrictos");
+
+            function add(x, y){
+                return x + y;
+            }
+            console.log("La suma es: " + add(3, 7));
+            
+            //Sin let se hace var por defecto
+            resta = function(x,y){
+                return x - y;
+            }
+            console.log("La resta es: " + resta(7, 3));
+
+            inc = (x, y) => {
+                x = x + y;
+                return x; 
+            }
+            console.log("El incremento es: " + inc(2, 1));
+
+            fp = function(x, y = x + 2){
+                return y;
+            }
+            console.log("One Argument -> " + fp(8));
+            console.log("Two Argument -> " + fp(8, 12));
+
+            const json = [{name:"Renzo", age: 23},{name:"Abril", age: 20},{add: (x, y) => x + y}];
+            console.log("Name: " + json[0].name + ", Age: " + json[1].age);
+            console.log("Suma -> " + json[2].add(2, 2));
+
+            const nums = [1, 2, 3];
+            console.log(nums.map(x => x * 2));
+            
+            //Clases
+            class Person{
+                name;
+                constructor(name){
+                    this.name = name;
+                }
+                getName(){
+                    return this.name;
+                }
+            }
+            let p = new Person("Renzo");
+            console.log("The Name is: " + (String)(p.getName()));
+
+        </script>
+    </body>
+</html>
