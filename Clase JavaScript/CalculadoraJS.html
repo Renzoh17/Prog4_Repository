@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculadora JS</title>
+    </head>
+    <body>
+        <input type="number"></input>
+        <button>Suma</button>
+        <script>
+            class Calculator{
+                n1;
+                n2;
+                constructor(n1, n2){
+                    this.n1 = n1;
+                    this.n2 = n2;
+                }
+                Add(){
+                    return this.n1 + this.n2;
+                }
+                Substraccion(){
+                    return this.n1 - this.n2;
+                }
+                Multiplication(){
+                    return this.n1 * this.n2;
+                }
+                Divide(){
+                    return this.n1 / this.n2;
+                }
+            }
+
+            n1 = input("Ingrese N1");
+            n2 = input("Ingrese N2");
+            let c = new Calculator(n1, n2);
+            console.log("Suma -> " + c.Add());
+        </script>
+    </body>
+</html>
