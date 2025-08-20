@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title> clase asincronica</title>
+    </head>
+    <body>
+        <button id="b1"> Botonsito</button>
+        <div id="d1">
+            
+        </div>
+        <script>
+            //Hacer q el boton sirva
+            const b1 = document.getElementById("b1");
+            
+            
+            b1.addEventListener("click", function(e){
+                alert("presionado");
+                this.textContent= "presionadooo";
+                this.style.backgroundColor="red";
+                const d1 = document.getElementById("d1");
+                d1.innerHTML = "<p> contenido</p>";
+                
+            })
+/*
+        //Asincronica 
+            async function p1(num){
+                return new Promise((resolve, reject) => {
+                    console.log("entra a la promesa");
+                    const success = Math.random() > 0.5;
+                    setTimeout(()=> {
+                        console.log("entra timeout  "+new Date().getMilliseconds());
+                        if(false) {
+                            resolve("anduvo "+num) ;
+                        } else {
+                            reject ("error "+num);
+                        }
+                   
+                },300); 
+                 
+                })//duerme el proceso en milisegundos
+            }
+         
+                async function p2(){
+                    return new Promise(resolve => {
+                        setTimeout (()=> {
+                            console.log("p2")
+                        }, 500)
+                    })
+                }
+                promises= [p1(1), p2()];
+                Promise.all(promises)
+                .then(responses => {
+                    console.log("all promises completed");
+                    for(r of responses){
+                        console.log(r);
+                    }
+                })
+                .catch(error => {
+                    console.log("Alguna promesa dio error "+ error);
+                })
+
+                async function paralela(){
+                    promises = [p1(1), p2()];
+                    const [a, b] = Promise.all(promises);
+                    return [a, b];
+                }
+
+                async function secuencial(){
+                    const a = await delay(300);
+                    const b = await delay(300);
+                    return [a, b];
+                }
+                console.log("inicio secuencial "+new Date().getMilliseconds);
+                secuencial();
+                console.log("fin secuencial "+new Date().getMilliseconds);
+                console.log("inicio paralela "+new Date().getMilliseconds);
+                paralela();
+                console.log("fin paralela "+new Date().getMilliseconds);
+            */
+        </script>
+    </body>
+</html>
