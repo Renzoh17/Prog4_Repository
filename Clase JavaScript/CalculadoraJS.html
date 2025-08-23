@@ -4,81 +4,34 @@
         <title>Calculadora JS</title>
     </head>
     <body>
-        <form id="myForm">
-            <label for="numb1">N1:</label>
-            <input type="number" id="numb1" name="numb1"></input>
+        <h1>Calculadora JavaScript</h1>
+        <div id="calculadora">
+            <input type="text" id="pantalla" readonly>
             <br><br>
-            <label for="numb2">N2:</label>
-            <input type="number" id="numb2" name="numb2"></input>
+            <button id="btn7" onclick="agregarNumero(7)">7</button>
+            <button id="btn8" onclick="agregarNumero(8)">8</button>
+            <button id="btn9" onclick="agregarNumero(9)">9</button>
+            <button id="btnSuma" onclick="operacion('+')">+</button>
             <br><br>
-            <button id="btnSuma">Suma</button>
-            <button id="btnResta">Resta</button>
-            <button id="btnMultiplicacion">Multiplicacion</button>
-            <button id="btnDivision">Division</button>
+            <button id="btn4" onclick="agregarNumero(4)">4</button>
+            <button id="btn5" onclick="agregarNumero(5)">5</button>
+            <button id="btn6" onclick="agregarNumero(6)">6</button>
+            <button id="btnResta" onclick="operacion('-')">-</button>
             <br><br>
-            <label for="resultado">Resultado:</label>
-            <input type="text" id="resultado" name="resultado" readonly></input>
-        </form>
-        <script>
-            class Calculator{
-                n1;
-                n2;
-                constructor(n1, n2){
-                    this.n1 = n1;
-                    this.n2 = n2;
-                }
-                Add(){
-                    return this.n1 + this.n2;
-                }
-                Substraccion(){
-                    return this.n1 - this.n2;
-                }
-                Multiplication(){
-                    return this.n1 * this.n2;
-                }
-                Divide(){
-                    return this.n1 / this.n2;
-                }
-            }
-            
-            // Event listeners for buttons
-            //SUMA
-            document.getElementById("btnSuma").addEventListener("click", function(event){
-                event.preventDefault();
-                let n1 = parseFloat(document.getElementById("numb1").value);
-                let n2 = parseFloat(document.getElementById("numb2").value);
-                let c = new Calculator(n1, n2);
-                console.log("Add Succesfully");
-                document.getElementById("resultado").value = c.Add();
-            });
-            //RESTA
-            document.getElementById("btnResta").addEventListener("click", function(event){
-                event.preventDefault();
-                let n1 = parseFloat(document.getElementById("numb1").value);
-                let n2 = parseFloat(document.getElementById("numb2").value);
-                let c = new Calculator(n1, n2);
-                console.log("Substraction Succesfully");
-                document.getElementById("resultado").value = c.Substraccion();
-            });
-            //MULTIPLICACION
-            document.getElementById("btnMultiplicacion").addEventListener("click", function(event){
-                event.preventDefault();
-                let n1 = parseFloat(document.getElementById("numb1").value);
-                let n2 = parseFloat(document.getElementById("numb2").value);
-                let c = new Calculator(n1, n2);
-                console.log("Multiplication Succesfully");
-                document.getElementById("resultado").value = c.Multiplication();
-            });
-            //DIVISIONr
-            document.getElementById("btnDivision").addEventListener("click", function(event){
-                event.preventDefault();
-                let n1 = parseFloat(document.getElementById("numb1").value);
-                let n2 = parseFloat(document.getElementById("numb2").value);
-                let c = new Calculator(n1, n2);
-                console.log("Division Succesfully");
-                document.getElementById("resultado").value = c.Divide();
-            });
-            
+            <button id="btn1" onclick="agregarNumero(1)">1</button>
+            <button id="btn2" onclick="agregarNumero(2)">2</button>
+            <button id="btn3" onclick="agregarNumero(3)">3</button>
+            <button id="btnMulti" onclick="operacion('*')">*</button>
+            <br><br>
+            <button id="btn0" onclick="agregarNumero(0)">0</button>
+            <button id="btnClear" onclick="limpiar()">C</button>
+            <button id="btnPunto" onclick="agregarNumero('.')">.</button>
+            <button id="btnDiv" onclick="operacion('/')">/</button>
+            <br><br>
+            <button id="btnBorrar" onclick="borrarUltimo()">Borrar</button>
+            <button id="btnIgual" onclick="calcularResultado()">=</button>
+        </div>
+        <script src="Calculadora.js">                 
         </script>
     </body>
 </html>
