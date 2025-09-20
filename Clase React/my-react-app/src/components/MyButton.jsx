@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-function MyButton(dato) {
+function MyButton(props) {
     const [clickCount, setClickCount] = useState(0);
     function handleClick() {
       setClickCount(clickCount + 1);
     }
     return (
       <button onClick={handleClick}>
-        {dato.dato} {clickCount}
+        {props.dato} {clickCount}
       </button>
     );
   }

@@ -1,0 +1,6 @@
+[
+    {"id":1, "nombre":"Harina", "cant":"1 taza"},
+    {"id":2, "nombre":"Huevos", "cant":"2"},
+    {"id":3, "nombre":"Leche", "cant":"1/2 taza"},
+    {"id":4, "nombre":"Sal", "cant":"1 pizca"}
+]
