@@ -6,8 +6,30 @@ const ObjectsContext = createContext(null);
 
 export const ObjectsProvider = ({children}) => {
     const[objects, setObjects] = useState([]);
-    useEffect(() => {
-        fetch('http://127.0.0.1:8000/objects')
+    const [isLoading, setIsLoading] = useState(false);
+
+    const addObject = async (name, color) => {
+        setIsLoading(true)
+        try{
+            const response = await fetch("http://localhost:8000/object",{
+               method: 'POST',
+                headers: {'Content-Type':'application/json'},
+                body: JSON.stringify({name: name, data: {color: color}})
+            })
+            if(!response.ok){
+                throw new Error("Error al crear el objeto")
+            }
+            await fetchObjects();
+        }catch(error){
+            throw error
+        }
+        finally{
+            setIsLoading(false);
+        }
+    }
+    
+    const fetchObjects = async () => {
+        await fetch('http://localhost:8000/objects')
         .then(response => {
             if(!response.ok){
                 throw new Error("Error en la llamada a la API");
@@ -24,15 +46,20 @@ export const ObjectsProvider = ({children}) => {
             {id:4, nombre:"Sal", cant:"1 pizca"} 
         ])*/
 
+    }
+     useEffect(() => {
+        fetchObjects();
     }, []);
     
-    return(
-        <ObjectsContext.Provider value={objects}>
-            {children}
-        </ObjectsContext.Provider>
+return(
+    <ObjectsContext.Provider value={{objects, addObject, isLoading}}>
+        {children}
+    </ObjectsContext.Provider>
     )
 }
 
 export const useObjects = () => {
     return useContext(ObjectsContext);
 }
+
+
